@@ -520,46 +520,47 @@
   const QUESTION_COUNT = 10;
   const BOOTH_STORAGE_PREFIX = "safety_check_booth_v1::";
 
-  // 업체별 지정 및 기존 가판명 리스트 (1~34번)[cite: 1]
+  // 업체별 지정 및 기존 가판명 리스트 (1~34번)
   const INSPECTION_TARGETS = [
-    { no: 1, company: "BBQ", booth: "BBQ(스카이크루즈)" },[cite: 1]
-    { no: 2, company: "CGV", booth: "모노브레드(공연장)" },[cite: 1]
-    { no: 3, company: "CGV", booth: "오징어(공연장)" },[cite: 1]
-    { no: 4, company: "CGV", booth: "CGV(락스빌)" },[cite: 1]
-    { no: 5, company: "HS마켓", booth: "이레(로봇VR)" },[cite: 1]
-    { no: 6, company: "HS마켓", booth: "이레(트레일러)" },[cite: 1]
-    { no: 7, company: "HS마켓", booth: "오오츄(스노우)" },[cite: 1]
-    { no: 8, company: "HS마켓", booth: "앤티앤스프레즐(스노우)" },[cite: 1]
-    { no: 9, company: "다정식품", booth: "소프트(몽키밸리1)" },[cite: 1]
-    { no: 10, company: "다정식품", booth: "이레(AWS)" },[cite: 1]
-    { no: 11, company: "다정식품", booth: "이레(정문) ※ 푸드트럭" },[cite: 1]
-    { no: 12, company: "다정식품", booth: "이레(푸드트럭)" },[cite: 1]
-    { no: 13, company: "미스터밀크", booth: "소프트(비룡2)" },[cite: 1]
-    { no: 14, company: "미스터밀크", booth: "소프트(사파리)" },[cite: 1]
-    { no: 15, company: "미스터밀크", booth: "소프트(스낵버스터)" },[cite: 1]
-    { no: 16, company: "미스터밀크", booth: "소프트(정문)" },[cite: 1]
-    { no: 17, company: "미스터밀크", booth: "소프트(포시즌가든)" },[cite: 1]
-    { no: 18, company: "미스터밀크", booth: "나루아토(소다파운틴)" },[cite: 1]
-    { no: 19, company: "미스터밀크", booth: "아이스쿨(소다파운틴)" },[cite: 1]
-    { no: 20, company: "앤티앤스", booth: "앤티앤스프레즐(매장)" },[cite: 1]
-    { no: 21, company: "오마뎅", booth: "카페(굿프렌즈캐빈)" },[cite: 1]
-    { no: 22, company: "오마뎅", booth: "구슬(콜럼버스)" },[cite: 1]
-    { no: 23, company: "오마뎅", booth: "아이스쿨(스낵버스터)" },[cite: 1]
-    { no: 24, company: "오마뎅", booth: "오오츄(로스트밸리)" },[cite: 1]
-    { no: 25, company: "오오츄", booth: "오오츄(라피아자)" },[cite: 1]
-    { no: 26, company: "오오츄", booth: "오오츄(락스빌)" },[cite: 1]
-    { no: 27, company: "오크베리", booth: "구슬(티티카카)" },[cite: 1]
-    { no: 28, company: "오크베리", booth: "아이스쿨(티티카카)" },[cite: 1]
-    { no: 29, company: "쥬시", booth: "소프트(코스타스)" },[cite: 1]
-    { no: 30, company: "쥬시", booth: "소프트(회전목마)" },[cite: 1]
-    { no: 31, company: "쥬시", booth: "구슬(공연장)" },[cite: 1]
-    { no: 32, company: "쥬시", booth: "소떡소떡(뮤직가든)" },[cite: 1]
-    { no: 33, company: "쥬시", booth: "쿠치나(장미원)" },[cite: 1]
-    { no: 34, company: "카페아모제", booth: "아모제" }[cite: 1]
+    { no: 1, company: "BBQ", booth: "BBQ(스카이크루즈)" },
+    { no: 2, company: "CGV", booth: "모노브레드(공연장)" },
+    { no: 3, company: "CGV", booth: "오징어(공연장)" },
+    { no: 4, company: "CGV", booth: "CGV(락스빌)" },
+    { no: 5, company: "HS마켓", booth: "이레(로봇VR)" },
+    { no: 6, company: "HS마켓", booth: "이레(트레일러)" },
+    { no: 7, company: "HS마켓", booth: "오오츄(스노우)" },
+    { no: 8, company: "HS마켓", booth: "앤티앤스프레즐(스노우)" },
+    { no: 9, company: "다정식품", booth: "소프트(몽키밸리1)" },
+    { no: 10, company: "다정식품", booth: "이레(AWS)" },
+    { no: 11, company: "다정식품", booth: "이레(정문) ※ 푸드트럭" },
+    { no: 12, company: "다정식품", booth: "이레(푸드트럭)" },
+    { no: 13, company: "미스터밀크", booth: "소프트(비룡2)" },
+    { no: 14, company: "미스터밀크", booth: "소프트(사파리)" },
+    { no: 15, company: "미스터밀크", booth: "소프트(스낵버스터)" },
+    { no: 16, company: "미스터밀크", booth: "소프트(정문)" },
+    { no: 17, company: "미스터밀크", booth: "소프트(포시즌가든)" },
+    { no: 18, company: "미스터밀크", booth: "나루아토(소다파운틴)" },
+    { no: 19, company: "미스터밀크", booth: "아이스쿨(소다파운틴)" },
+    { no: 20, company: "앤티앤스", booth: "앤티앤스프레즐(매장)" },
+    { no: 21, company: "오마뎅", booth: "카페(굿프렌즈캐빈)" },
+    { no: 22, company: "오마뎅", booth: "구슬(콜럼버스)" },
+    { no: 23, company: "오마뎅", booth: "아이스쿨(스낵버스터)" },
+    { no: 24, company: "오마뎅", booth: "오오츄(로스트밸리)" },
+    { no: 25, company: "오오츄", booth: "오오츄(라피아자)" },
+    { no: 26, company: "오오츄", booth: "오오츄(락스빌)" },
+    { no: 27, company: "오크베리", booth: "구슬(티티카카)" },
+    { no: 28, company: "오크베리", booth: "아이스쿨(티티카카)" },
+    { no: 29, company: "쥬시", booth: "소프트(코스타스)" },
+    { no: 30, company: "쥬시", booth: "소프트(회전목마)" },
+    { no: 31, company: "쥬시", booth: "구슬(공연장)" },
+    { no: 32, company: "쥬시", booth: "소떡소떡(뮤직가든)" },
+    { no: 33, company: "쥬시", booth: "쿠치나(장미원)" },
+    { no: 34, company: "카페아모제", booth: "아모제" }
   ];
 
   function populateBoothDatalist(filterCompany) {
     const boothList = document.getElementById("boothList");
+    if (!boothList) return;
     boothList.innerHTML = "";
 
     const targetList = filterCompany
@@ -578,6 +579,9 @@
 
   function initTargetInputs() {
     const companyList = document.getElementById("companyList");
+    if (!companyList) return;
+    companyList.innerHTML = "";
+
     const uniqueCompanies = [...new Set(INSPECTION_TARGETS.map(item => item.company))];
 
     uniqueCompanies.forEach(company => {
@@ -592,9 +596,11 @@
   }
 
   function onCompanyInput() {
-    const companyVal = document.getElementById("companyInput").value.trim();
+    const companyInput = document.getElementById("companyInput");
     const boothInput = document.getElementById("boothInput");
+    if (!companyInput || !boothInput) return;
 
+    const companyVal = companyInput.value.trim();
     populateBoothDatalist(companyVal);
 
     const matchedBooths = INSPECTION_TARGETS.filter(
@@ -615,9 +621,11 @@
   }
 
   function onBoothInput() {
-    const boothVal = document.getElementById("boothInput").value.trim();
+    const boothInput = document.getElementById("boothInput");
     const companyInput = document.getElementById("companyInput");
+    if (!boothInput || !companyInput) return;
 
+    const boothVal = boothInput.value.trim();
     if (boothVal && !companyInput.value.trim()) {
       const exactMatch = INSPECTION_TARGETS.find(
         item => item.booth.toLowerCase() === boothVal.toLowerCase()
@@ -629,8 +637,6 @@
     }
     checkSavedBoothBanner();
   }
-
-  initTargetInputs();
 
   let answers = Array(QUESTION_COUNT).fill(null);
   let questionPhotos = Array.from({ length: QUESTION_COUNT }, () => []);
@@ -883,7 +889,6 @@
     });
   }
 
-  // YYMMDD (로컬 날짜 기준)
   function getYYMMDD(dateObj) {
     const yy = String(dateObj.getFullYear()).slice(-2);
     const mm = String(dateObj.getMonth() + 1).padStart(2, "0");
@@ -1041,7 +1046,6 @@
 
     let allRecords = getAllSavedBoothInspections();
 
-    // 저장된 가판 점검 내역이 없는 경우 현재 화면 입력값을 1건으로 간주
     if (allRecords.length === 0) {
       if (!inputCompany) {
         alert("저장된 가판 점검 내역이 없습니다. 점검 업체를 입력하거나 선택해 주세요.");
@@ -1090,7 +1094,6 @@
       const dateStr = now.toLocaleString("ko-KR");
       const qTexts = document.querySelectorAll("#questionsContainer .question-text");
 
-      // 업체별 그룹화
       const groupedByCompany = new Map();
       allRecords.forEach((rec) => {
         const comp = rec.company.trim();
@@ -1114,7 +1117,6 @@
           qTexts
         );
 
-        // 파일명: 년도끝2자리 + 월2자리 + 일2자리 + 업체명 + 점검자.pdf
         const fileName =
           yymmdd +
           sanitizeFilePart(companyName) +
@@ -1129,7 +1131,6 @@
           pdfBase64: pdfBase64
         });
 
-        // 브라우저 로컬에도 업체별 PDF 저장
         triggerBase64PdfDownload(pdfBase64, fileName);
         await new Promise(resolve => setTimeout(resolve, 250));
       }
@@ -1137,7 +1138,6 @@
       const representativeInspector =
         inputInspector || generatedFiles[0]?.inspector || "미기재";
 
-      // 업체별로 생성된 PDF들을 1개 메일로 전송하도록 한 번에 발송
       await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
@@ -1166,6 +1166,9 @@
       submitBtn.disabled = false;
     }
   }
+
+  initTargetInputs();
+  checkSavedBoothBanner();
 </script>
 
 </body>
